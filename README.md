@@ -27,14 +27,14 @@ START → Supervisor → [Analista Fundamental]  ─┐
 - **Orquestração:** LangGraph
 - **Dados financeiros:** [financialdatasets.ai](https://financialdatasets.ai)
 - **Busca de notícias:** [Tavily](https://tavily.com)
-- **Interface:** Gradio
+- **Interface:** Gradio Blocks (layout em cards por analista)
 
 ## Como usar
 
 ### 1. Instalar dependências
 
 ```bash
-pip install langgraph langchain langchain_openai langchain_community langsmith gradio pandas rich
+pip install langgraph langchain langchain_openai langchain_community langsmith gradio pandas
 ```
 
 ### 2. Configurar as APIs
@@ -51,11 +51,17 @@ Você vai precisar de 3 chaves de API:
 
 Abra o notebook `Hedge-fund-agent-team.ipynb` no Google Colab, insira suas chaves quando solicitado e execute todas as células.
 
-### 4. Interface Gradio
+### 4. Interface
 
-A última célula sobe uma interface web onde você digita o ticker e a pergunta:
+A última célula sobe uma interface web com layout em **4 cards**, um por agente:
 
-![Interface](https://i.imgur.com/placeholder.png)
+```
+┌─────────────────────┬─────────────────────┐
+│  📊 Fundamental     │  📈 Técnico          │
+├─────────────────────┼─────────────────────┤
+│  📰 Sentimento      │  🧠 Portfolio Mgr    │
+└─────────────────────┴─────────────────────┘
+```
 
 **Exemplos de uso:**
 - `AAPL` — "Qual o preço atual, últimas notícias e receita?"
